@@ -16,7 +16,6 @@ void display(vector<ll> array){
 
 ll partitionIndex(vector<ll> &array, ll start, ll end){
     ll pivot = array[end];
-    cout<<start<<" "<<end<<endl;
     ll i,j,temp,partionIndexValue = start-1;
     for(i=start;i<end;i++){
         if(array[i]<=pivot){
