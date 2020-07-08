@@ -35,7 +35,6 @@ int main(){
         cin>>j;
         array.push_back(j);
     }
-    sort(array.begin(),array.end());
     for(i=0;i<10;i++){
         cin>>j;
         cout<<binarySearch(array,j)<<endl;
