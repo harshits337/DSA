@@ -23,6 +23,7 @@ class LinkedList {
         void insert(ll data);
         void display();
         bool detectCycle();
+        void removeCycle(Node * intersection);
         
 };
 
@@ -34,11 +35,22 @@ bool LinkedList :: detectCycle(){
         first = first->next;
         second = second->next->next;
         if(first == second){
+            removeCycle(first);
             return true;
         }
     }
-
     return false;
+}
+
+void LinkedList :: removeCycle(Node * intersection){
+
+    Node * start = head;
+    while (start->next != intersection->next){
+        start = start->next;
+        intersection = intersection->next;
+    }
+    intersection->next = nullptr;
+
 }
 
 void LinkedList :: insert(ll data){
@@ -82,8 +94,10 @@ int main(){
     linkedList.insert(8);
     // linkedList.display();
     if(linkedList.detectCycle()){
-        cout<<"Cycle Detected"<<endl;
+        cout<<"Cycle Detected and removed"<<endl;
     } else{
         cout<<"No cycle present"<<endl;
     }
+
+    linkedList.display();
 }
